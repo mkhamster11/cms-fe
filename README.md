@@ -57,3 +57,38 @@ export default tseslint.config({
 npm install axios redux react-redux @reduxjs/toolkit react-router-dom
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
+
+
+🧩 CMS Features Breakdown
+1. Authentication
+Login, Logout
+
+Token Storage (in localStorage or httpOnly cookies)
+
+Protected Routes using PrivateRoute wrapper
+
+Redux slice: authSlice
+
+2. User Management (optional for admin)
+List Users
+
+Create/Edit/Delete User
+
+Role-based access
+
+3. Post Management
+List Posts
+
+Create / Edit / Delete Post
+
+View single post
+
+4. Page Management
+Dynamic pages (title, slug, content)
+
+CRUD with rich text support (optional)
+
+5. Media Manager
+Upload and manage files (images, videos)
+
+Preview & delete files
