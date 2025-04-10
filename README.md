@@ -52,3 +52,8 @@ export default tseslint.config({
   },
 })
 ```
+
+
+npm install axios redux react-redux @reduxjs/toolkit react-router-dom
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
