@@ -55,7 +55,7 @@ export default tseslint.config({
 
 
 npm install axios redux react-redux @reduxjs/toolkit react-router-dom
-npm install -D tailwindcss postcss autoprefixer
+npm install -D tailwindcss postcss autoprefixer   
 npx tailwindcss init -p
 
 
@@ -92,3 +92,39 @@ CRUD with rich text support (optional)
 Upload and manage files (images, videos)
 
 Preview & delete files
+
+
+
+🏗️ GOAL:
+Public Homepage (company website)
+→ pulls content from backend (e.g. hero section, about us, features, etc.)
+
+Admin Dashboard
+→ manage homepage sections (CRUD for title, description, image, etc.)
+
+🖼️ Example Homepage Sections
+Hero (title, subtitle, background image)
+
+About Us
+
+Features / Services
+
+Testimonials
+
+Contact Info / Footer
+
+
+🎨 Frontend Plan (React)
+Public Website (/)
+Pull homepage content via Axios (/api/pages/home)
+
+Render each section dynamically
+
+CMS Admin Panel (/admin)
+Login
+
+View homepage sections
+
+Edit content
+
+Upload images (optional)
