@@ -48,10 +48,23 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../api/axios';
 
+
 export const login = createAsyncThunk('auth/login', async (credentials: { username: string; password: string }) => {
-  const response = await axios.post('token/', credentials);
-  localStorage.setItem('access', response.data.access);
-  return response.data.access;
+  const params = new URLSearchParams();
+  params.append('username', credentials.username);
+  params.append('password', credentials.password);
+  params.append('grant_type', 'password');
+
+  const response = await axios.post('/auth/login', params, {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  });
+
+  const accessToken = response.data.access_token;
+  localStorage.setItem('access', accessToken);
+
+  return accessToken;
 });
 
 const authSlice = createSlice({
