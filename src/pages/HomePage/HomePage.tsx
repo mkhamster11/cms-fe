@@ -94,8 +94,11 @@
 
 
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/hooks';
-import { fetchHomeContent } from '../features/auth/homeSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { fetchHomeContent } from '../../features/auth/homeSlice';
+import Header from './header'
+import Footer from './footer'
+import Services from './services'; // ✅ Import Services
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
@@ -106,15 +109,16 @@ export default function HomePage() {
   }, [dispatch]);
 
   if (status === 'loading') return <div className="p-6 text-lg">Loading...</div>;
-  if (!content) return <div className="p-6 text-red-500">No content available</div>;
+  if (!content) return <div></div>;
 
   const orderedSections = [...content.sections].sort((a, b) => a.order - b.order);
 
   return (
     <div className="p-6 space-y-20 max-w-7xl mx-auto">
+      <Header />
       {orderedSections.map((section) => {
         const { section_type, content } = section;
-
+        
         switch (section_type) {
           case 'hero':
             return (
@@ -136,19 +140,22 @@ export default function HomePage() {
             );
 
           case 'services':
-            return (
-              <section key={section_type}>
-                <h2 className="text-3xl font-semibold mb-6 text-center">Our Services</h2>
-                <div className="grid gap-6 md:grid-cols-3">
-                  {content.items?.map((item: any, i: number) => (
-                    <div key={i} className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition">
-                      <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            );
+            return <Services key={section_type} section_type={section_type} content={content} />;
+            // return (
+            //   <section key={section_type}>
+            //     <h2 className="text-3xl font-semibold mb-6 text-center">Our Services</h2>
+            //     <div className="grid gap-6 md:grid-cols-3">
+            //       {content.items?.map((item: any, i: number) => (
+            //         <div key={i} className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition">
+            //           <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+            //           <p className="text-gray-600">{item.description}</p>
+            //           <button className="">Learn more</button>
+
+            //         </div>
+            //       ))}
+            //     </div>
+            //   </section>
+            // );
 
           case 'testimonials':
             return (
@@ -184,6 +191,8 @@ export default function HomePage() {
             return null;
         }
       })}
+      <Footer/>
+
     </div>
   );
 }
