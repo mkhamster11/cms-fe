@@ -99,7 +99,7 @@ import { fetchHomeContent } from '../../features/auth/homeSlice';
 import Header from './header'
 import Footer from './footer'
 import Services from './services'; // ✅ Import Services
-
+import HeroSection from './Hero';
 export default function HomePage() {
   const dispatch = useAppDispatch();
   const { content, status } = useAppSelector((state) => state.home);
@@ -116,28 +116,13 @@ export default function HomePage() {
   return (
     <div className="p-6 space-y-20 max-w-7xl mx-auto">
       <Header />
+
       {orderedSections.map((section) => {
         const { section_type, content } = section;
         
         switch (section_type) {
           case 'hero':
-            return (
-              <section key={section_type} className="text-center">
-                <h1 className="text-4xl md:text-5xl font-bold">
-                  {content.heading || 'Welcome to Our Startup'}
-                </h1>
-                <p className="mt-4 text-xl text-gray-600">
-                  {content.subheading || 'Innovative solutions for modern problems.'}
-                </p>
-                {content.image && (
-                  <img
-                    src={content.image}
-                    alt="Hero"
-                    className="mt-8 w-full max-h-[400px] object-cover rounded-xl shadow-lg"
-                  />
-                )}
-              </section>
-            );
+            return <HeroSection/>
 
           case 'services':
             return <Services key={section_type} section_type={section_type} content={content} />;

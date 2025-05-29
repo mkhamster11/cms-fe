@@ -1,0 +1,24 @@
+
+
+
+{
+  "slug": "header",
+  "title": "header bar",
+  "sections": [
+        {
+      "section_type": "header",
+      "order": 0,
+      "content": {
+        "logo_url": "/logo.png",
+        "nav_links": [
+          { "label": "Home", "href": "/" },
+          { "label": "Services", "href": "/services" },
+          { "label": "About Us", "href": "/about" },
+          { "label": "Contact", "href": "/contact" }
+        ]
+      }
+    }
+  ]
+}
+
+
