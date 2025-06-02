@@ -52,7 +52,8 @@ export default function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+ <div className="bg-white">
+  {/*
       <header className="absolute inset-x-0 top-0 z-50">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">
@@ -134,8 +135,7 @@ export default function HeroSection() {
             </div>
           </DialogPanel>
         </Dialog>
-      </header>
-
+      </header>*/}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"

@@ -126,22 +126,6 @@ export default function HomePage() {
 
           case 'services':
             return <Services key={section_type} section_type={section_type} content={content} />;
-            // return (
-            //   <section key={section_type}>
-            //     <h2 className="text-3xl font-semibold mb-6 text-center">Our Services</h2>
-            //     <div className="grid gap-6 md:grid-cols-3">
-            //       {content.items?.map((item: any, i: number) => (
-            //         <div key={i} className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition">
-            //           <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-            //           <p className="text-gray-600">{item.description}</p>
-            //           <button className="">Learn more</button>
-
-            //         </div>
-            //       ))}
-            //     </div>
-            //   </section>
-            // );
-
           case 'testimonials':
             return (
               <section key={section_type} className="bg-gray-50 p-6 rounded-xl shadow-inner">
