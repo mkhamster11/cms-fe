@@ -17,13 +17,13 @@ jobs:
 
       - name: Build Docker image
         run: |
-          sudo docker build -t cms-fe .
+          docker build -t cms-fe .
 
       - name: Stop and remove old container
         run: |
-          sudo docker stop cms-fe || echo "No container to stop"
-          sudo docker rm cms-fe || echo "No container to remove"
+          docker stop cms-fe || echo "No container to stop"
+          docker rm cms-fe || echo "No container to remove"
 
       - name: Run new container
         run: |
-          sudo docker run --restart always --name cms-fe -d -p 3117:3117 cms-fe
+          docker run --restart always --name cms-fe -d -p 3117:3117 cms-fe
